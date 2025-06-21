@@ -55,7 +55,7 @@ impl FuelNetwork {
     pub fn to_nats_url(&self) -> String {
         match self {
             FuelNetwork::Local => "nats://localhost:4222",
-            FuelNetwork::Staging => "nats://stream-staging.fuel.network:4222",
+            FuelNetwork::Staging => "nats://stream-testnet.fuel.network:4222",
             FuelNetwork::Mainnet => "nats://stream-mainnet.fuel.network:4222",
         }
         .to_string()
@@ -67,7 +67,7 @@ impl FuelNetwork {
                 Url::parse("http://localhost:9003").expect("working url")
             }
             FuelNetwork::Staging => {
-                Url::parse("https://stream-staging.fuel.network")
+                Url::parse("https://stream-testnet.fuel.network")
                     .expect("working url")
             }
             FuelNetwork::Mainnet => {
@@ -83,7 +83,7 @@ impl FuelNetwork {
                 Url::parse("ws://0.0.0.0:9003").expect("working url")
             }
             FuelNetwork::Staging => {
-                Url::parse("wss://stream-staging.fuel.network")
+                Url::parse("wss://stream-testnet.fuel.network")
                     .expect("working url")
             }
             FuelNetwork::Mainnet => {
